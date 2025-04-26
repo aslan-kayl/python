@@ -13,9 +13,14 @@
 #     print(player.title())
 
 
-my_foods = ['pizza', 'falafel', 'carrot cake']
-friend_foods = my_foods[:]
-my_foods.append('cannoli')
-friend_foods.insert(1, 'ice cream')
-print(f"My favorite foods are:\n{my_foods}")
-print(f"\nMy friend\'s favorite foods are:\n{friend_foods}")
+# my_foods = ['pizza', 'falafel', 'carrot cake']
+# friend_foods = my_foods[:]
+# my_foods.append('cannoli')
+# friend_foods.insert(1, 'ice cream')
+# print(f"My favorite foods are:\n{my_foods}")
+# print(f"\nMy friend\'s favorite foods are:\n{friend_foods}")
+
+
+dimensions = 200, 50
+for dimension in dimensions:
+    print(dimension)
