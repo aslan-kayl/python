@@ -6,7 +6,7 @@
 #
 # for alien in aliens:
 #     print(alien)
-from chapter_6.trener import favorite_languages
+# from chapter_6.trener import favorite_languages
 
 # # aliens = []
 # создаём 30 пришельцев, передаём им атрибуты и сохраняем в списке
