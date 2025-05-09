@@ -107,6 +107,9 @@ class Battery():
             next_range = 315
         print(f"This car can go about {next_range} milles on a full charge.")
 
+    def upgrade_battery(self):
+        if self.battery_size != 100:
+            self.battery_size = 100
 
 class ElectricCar(Car):
     def __init__(self, make, model, year):
