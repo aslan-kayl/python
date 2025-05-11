@@ -3,6 +3,8 @@
 # print(contents.rstrip())
 from xml.etree.ElementTree import canonicalize
 
+from chapter_10.write_message import filename
+
 # filename = 'pi_digits.txt'
 # with open(filename) as file_object:
 #     for line in file_object:
@@ -71,10 +73,84 @@ from xml.etree.ElementTree import canonicalize
 #     else:
 #         print(answer)
 
-filename = 'alice.txt'
+"""подсчёт приблизительного количество строк в файле"""
+# def count_words(filename):
+#
+#     try:
+#         with open(filename, encoding='utf-8') as f:
+#             contents = f.read()
+#     except FileNotFoundError:
+#         print(f"Sorry, the file {filename} does not exist.")
+#     else:
+#         words = contents.split()
+#
+#         num_words = len(words)
+#         print(f"The file {filename} has about {num_words} words.")
+#
+# filename = ['alise_in_wonderland.txt',
+#             'learning_python.txt',
+#             'my_guest.txt',
+#             'programming.txt',
+#             'pi_digits.txt'
+#             ]
+#
+# for filenames in filename:
+#     count_words(filenames)
 
-try:
-    with open(filename, encoding='utf-8') as f:
-        contents = f.read()
-except FileNotFoundError:
-    print(f"Sorry, the file {filename} does not exist.")
+import json
+
+# numbers = [2, 3, 5, 7, 11, 13]
+#
+# filename = 'numbers.json'
+#
+# with open(filename, 'w') as f:
+#     json.dump(numbers, f)
+
+# filename = 'numbers.json'
+# with open(filename) as f:
+#     numbers = json.load(f)
+#
+# print(numbers)
+
+# filename = 'username.json'
+# try:
+#     with open(filename) as f:
+#         username = json.load(f)
+#
+# except FileNotFoundError:
+#     username = input("What is your name? ")
+#     with open(filename, 'w') as f:
+#         json.dump(username, f)
+#         print(f"We\'ll remember you when you come back, {username}!")
+#
+# else:
+#     print(f"Welcome back, {username}!")
+
+def greet_stored_user():
+    """приветствует пользователя по имени"""
+    filename = 'username.json'
+    try:
+        with open(filename) as f:
+            username = json.load(f)
+
+    except FileNotFoundError:
+        return None
+    else:
+        return username
+
+def get_new_username():
+    username = input("What is your name? ")
+    filename = 'username.json'
+    with open(filename, 'w') as f:
+        json.dump(username, f)
+    return username
+
+def greet_user():
+    username = greet_stored_user()
+    if username:
+        print(f"Welcome back, {username}!")
+    else:
+        username = get_new_username()
+        print(f"We\'ll remember you when you come back, {username}!")
+
+greet_user()
