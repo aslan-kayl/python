@@ -23,26 +23,12 @@ class AlienInvasion():
         """запуск основного цикла игры."""
         while True:
             self._check_events()
-            self.ship.update()
             self._update_screen()
             #отслеживание клавиатуры и мыши
     def _check_events(self):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 sys.exit()
-            elif event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_RIGHT:
-                    #переместить корабль вправо
-                    self.ship.moving_right = True
-                if event.key == pygame.K_LEFT:
-                    self.ship.moving_left = True
-            elif event.type == pygame.KEYUP:
-                if event.key == pygame.K_RIGHT:
-                    self.ship.moving_right = False
-                if event.key == pygame.K_LEFT:
-                    self.ship.moving_left = False
-
-
         """обновляет изображение на экране и отображает новый экран"""
     def _update_screen(self):
         self.screen.fill(self.settings.bg_color)
